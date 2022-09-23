@@ -18,11 +18,17 @@ class CurrentyAPI {
     private var cancellables: Set<AnyCancellable> = []
     
     func convert(to: String, from: String, amount: String) {
+        guard let apiKey = Bundle.main.infoDictionary?["CURRENCY_API_KEY"] as? String else {
+            print("Missing the API key for this API")
+            return
+        }
+
         var convertUrlComponents = URLComponents(string: "\(baseUrl)\(convertPath)")
         let queryItemTo = URLQueryItem(name: "to", value: to)
         let queryItemFrom = URLQueryItem(name: "from", value: from)
         let queryItemAmount = URLQueryItem(name: "amount", value: amount)
-        convertUrlComponents?.queryItems = [queryItemTo, queryItemFrom, queryItemAmount]
+        let queryItemAPIKey = URLQueryItem(name: "api_key", value: apiKey)
+        convertUrlComponents?.queryItems = [queryItemTo, queryItemFrom, queryItemAmount, queryItemAPIKey]
         
         if let url = convertUrlComponents?.url {
             session.dataTaskPublisher(for: url)

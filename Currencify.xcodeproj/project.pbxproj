@@ -21,6 +21,8 @@
 		EB4ECFEE28DE48B700367993 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB4ECFF128DE48B700367993 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EB4ECFF828DE534500367993 /* CurrencyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyAPI.swift; sourceTree = "<group>"; };
+		EB4ECFFA28DE71EA00367993 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		EB4ECFFB28DE786200367993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +55,9 @@
 		EB4ECFE928DE48B600367993 /* Currencify */ = {
 			isa = PBXGroup;
 			children = (
+				EB4ECFFB28DE786200367993 /* Info.plist */,
 				EB4ECFEE28DE48B700367993 /* Assets.xcassets */,
+				EB4ECFFA28DE71EA00367993 /* Config.xcconfig */,
 				EB4ECFEC28DE48B600367993 /* ContentView.swift */,
 				EB4ECFEA28DE48B600367993 /* CurrencifyApp.swift */,
 				EB4ECFF828DE534500367993 /* CurrencyAPI.swift */,
@@ -151,6 +155,7 @@
 /* Begin XCBuildConfiguration section */
 		EB4ECFF328DE48B700367993 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB4ECFFA28DE71EA00367993 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -211,6 +216,7 @@
 		};
 		EB4ECFF428DE48B700367993 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB4ECFFA28DE71EA00367993 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -274,6 +280,7 @@
 				DEVELOPMENT_TEAM = THQHXZM7R8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Currencify/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,6 +311,7 @@
 				DEVELOPMENT_TEAM = THQHXZM7R8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Currencify/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
