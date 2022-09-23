@@ -16,6 +16,9 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
+        .onAppear {
+            CurrentyAPI.shared.convert(to: "JPY", from: "USD", amount: "100")
+        }
     }
 }
 
