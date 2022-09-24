@@ -30,9 +30,10 @@ class CurrencyAPI {
         
         if let url = convertUrlComponents?.url {
             return session.dataTaskPublisher(for: url)
-                .map { (data: Data, response: URLResponse) in
-                    if let res = response as? HTTPURLResponse {
-                        print("Response Status Code: \(res.statusCode)")
+                .tryMap { (data: Data, response: URLResponse) in
+                    if let res = response as? HTTPURLResponse, res.statusCode != 200 {
+                        //TODO - handle api error later
+                        throw APIError.serverError
                     }
                     return data
                 }

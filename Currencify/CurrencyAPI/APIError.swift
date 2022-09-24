@@ -5,11 +5,10 @@
 //  Created by G Zhen on 9/24/22.
 //
 
-import Foundation
-
-enum APIError: Error{
+enum APIError: Error {
     case noApiKey
     case invalidUrl
+    case serverError
     
     var localizedDescription: String {
         switch self {
@@ -17,6 +16,8 @@ enum APIError: Error{
             return "The API Key is missing."
         case .invalidUrl:
             return "The request url is invalid."
+        case .serverError:
+            return "Our server is down, please try again later."
         }
     }
 }

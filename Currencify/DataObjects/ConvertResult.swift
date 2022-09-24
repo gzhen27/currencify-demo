@@ -22,9 +22,6 @@
 //         }
 //  }
 //
- 
-
-import Foundation
 
 struct ConvertResult: Decodable {
     let response: ConvertResponse

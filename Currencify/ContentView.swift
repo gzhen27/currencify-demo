@@ -37,7 +37,7 @@ struct ContentView: View {
                 title: Text("Error Occurs"),
                 message: Text(currencyManager.errorMessage ?? "Please try again later."),
                 dismissButton: Alert.Button.default(Text("OK")) {
-                    currencyManager.clearErrorMessage()
+                    currencyManager.clearErrorStatus()
                 }
             )
         }

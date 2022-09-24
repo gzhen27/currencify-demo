@@ -21,18 +21,7 @@ class CurrencyManager: ObservableObject {
                 case .finished:
                     print("\(completionStatus)")
                 case .failure(let err):
-                    isPresentError = true
-                    if let err = err as? APIError {
-                        switch err {
-                        case .noApiKey:
-                            //TODO - updates error message later
-                            self.errorMessage = err.localizedDescription
-                        case .invalidUrl:
-                            self.errorMessage = err.localizedDescription
-                        }
-                    } else {
-                        self.errorMessage = err.localizedDescription
-                    }
+                    self.setErrorStatus(with: err)
                 }
             } receiveValue: { [unowned self] result in
                 self.convertResult = result
@@ -40,8 +29,26 @@ class CurrencyManager: ObservableObject {
             .store(in: &cancellables)
     }
     
-    func clearErrorMessage() {
+    // MARK: - Helper functions
+    func clearErrorStatus() {
         isPresentError = false
         errorMessage = nil
+    }
+
+    private func setErrorStatus(with err: Error) {
+        if let err = err as? APIError {
+            switch err {
+            case .noApiKey:
+                //TODO - updates error message later
+                self.errorMessage = err.localizedDescription
+            case .invalidUrl:
+                self.errorMessage = err.localizedDescription
+            case .serverError:
+                self.errorMessage = err.localizedDescription
+            }
+        } else {
+            self.errorMessage = err.localizedDescription
+        }
+        isPresentError = true
     }
 }
