@@ -8,11 +8,6 @@
 import Foundation
 import Combine
 
-enum APIError: Error {
-    case noApiKey
-    case invalidUrl
-}
-
 class CurrencyAPI {
     static var shared = CurrencyAPI()
     

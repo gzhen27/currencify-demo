@@ -32,6 +32,15 @@ struct ContentView: View {
             Spacer()
         }
         .padding()
+        .alert(isPresented: $currencyManager.isPresentError) {
+            Alert(
+                title: Text("Error Occurs"),
+                message: Text(currencyManager.errorMessage ?? "Please try again later."),
+                dismissButton: Alert.Button.default(Text("OK")) {
+                    currencyManager.clearErrorMessage()
+                }
+            )
+        }
     }
 }
 

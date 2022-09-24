@@ -9,21 +9,39 @@ import Combine
 
 class CurrencyManager: ObservableObject {
     @Published var convertResult: ConvertResult?
+    @Published var isPresentError: Bool = false
+    var errorMessage: String?
     
     private var cancellables: Set<AnyCancellable> = []
     
     func convert(to: String, from: String, amount: String) {
         CurrencyAPI.shared.convert(to: to, from: from, amount: amount)
-            .sink { completionStatus in
+            .sink { [unowned self] completionStatus in
                 switch completionStatus {
                 case .finished:
                     print("\(completionStatus)")
                 case .failure(let err):
-                    print("\(err.localizedDescription)")
+                    isPresentError = true
+                    if let err = err as? APIError {
+                        switch err {
+                        case .noApiKey:
+                            //TODO - updates error message later
+                            self.errorMessage = err.localizedDescription
+                        case .invalidUrl:
+                            self.errorMessage = err.localizedDescription
+                        }
+                    } else {
+                        self.errorMessage = err.localizedDescription
+                    }
                 }
             } receiveValue: { [unowned self] result in
                 self.convertResult = result
             }
             .store(in: &cancellables)
+    }
+    
+    func clearErrorMessage() {
+        isPresentError = false
+        errorMessage = nil
     }
 }
