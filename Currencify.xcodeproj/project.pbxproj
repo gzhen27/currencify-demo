@@ -12,6 +12,7 @@
 		EB4ECFEF28DE48B700367993 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB4ECFEE28DE48B700367993 /* Assets.xcassets */; };
 		EB4ECFF228DE48B700367993 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB4ECFF128DE48B700367993 /* Preview Assets.xcassets */; };
 		EB4ECFF928DE534500367993 /* CurrencyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4ECFF828DE534500367993 /* CurrencyAPI.swift */; };
+		EB4ECFFE28DE817B00367993 /* ConvertResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4ECFFD28DE817B00367993 /* ConvertResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		EB4ECFF828DE534500367993 /* CurrencyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyAPI.swift; sourceTree = "<group>"; };
 		EB4ECFFA28DE71EA00367993 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		EB4ECFFB28DE786200367993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		EB4ECFFD28DE817B00367993 /* ConvertResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,12 +57,12 @@
 		EB4ECFE928DE48B600367993 /* Currencify */ = {
 			isa = PBXGroup;
 			children = (
+				EB4ECFFC28DE80ED00367993 /* CurrencyAPI */,
 				EB4ECFFB28DE786200367993 /* Info.plist */,
 				EB4ECFEE28DE48B700367993 /* Assets.xcassets */,
 				EB4ECFFA28DE71EA00367993 /* Config.xcconfig */,
 				EB4ECFEC28DE48B600367993 /* ContentView.swift */,
 				EB4ECFEA28DE48B600367993 /* CurrencifyApp.swift */,
-				EB4ECFF828DE534500367993 /* CurrencyAPI.swift */,
 				EB4ECFF028DE48B700367993 /* Preview Content */,
 			);
 			path = Currencify;
@@ -72,6 +74,15 @@
 				EB4ECFF128DE48B700367993 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EB4ECFFC28DE80ED00367993 /* CurrencyAPI */ = {
+			isa = PBXGroup;
+			children = (
+				EB4ECFF828DE534500367993 /* CurrencyAPI.swift */,
+				EB4ECFFD28DE817B00367993 /* ConvertResult.swift */,
+			);
+			path = CurrencyAPI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +157,7 @@
 			files = (
 				EB4ECFED28DE48B600367993 /* ContentView.swift in Sources */,
 				EB4ECFEB28DE48B600367993 /* CurrencifyApp.swift in Sources */,
+				EB4ECFFE28DE817B00367993 /* ConvertResult.swift in Sources */,
 				EB4ECFF928DE534500367993 /* CurrencyAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

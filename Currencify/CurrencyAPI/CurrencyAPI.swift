@@ -14,6 +14,7 @@ class CurrentyAPI {
     private let baseUrl = "https://api.currencyscoop.com/v1"
     private let convertPath = "/convert"
     private let session = URLSession(configuration: URLSessionConfiguration.default)
+    private let decoder = JSONDecoder()
     
     private var cancellables: Set<AnyCancellable> = []
     
@@ -38,6 +39,7 @@ class CurrentyAPI {
                     }
                     return data
                 }
+                .decode(type: ConvertResult.self, decoder: decoder)
                 .sink { completionStatus in
                     switch completionStatus {
                     case .finished:
@@ -46,12 +48,7 @@ class CurrentyAPI {
                         print("failed to sink data from publisher")
                     }
                 } receiveValue: { data in
-                    let stringifyData = String(data: data, encoding: .utf8)
-                    if let content = stringifyData {
-                        print(content)
-                    } else {
-                        print("Failed to stringify the data")
-                    }
+                    print(data.response)
                 }
                 .store(in: &cancellables)
         } else {
