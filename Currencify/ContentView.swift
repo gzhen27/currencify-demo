@@ -8,17 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var currencyManager = CurrencyManager()
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Spacer()
+            if let response = currencyManager.convertResult?.response {
+                Text("\(response.from) \(response.amount)")
+                Text("To: \(response.to)")
+                Text("\(response.to) \(response.value)")
+            }
+            Button("Convert CNY") {
+                currencyManager.convert(to: "CNY", from: "USD", amount: "100")
+            }
+            .padding()
+            Button("Convert JPY") {
+                currencyManager.convert(to: "JPY", from: "USD", amount: "100")
+            }
+            .padding()
+            Spacer()
         }
         .padding()
-        .onAppear {
-            CurrentyAPI.shared.convert(to: "JPY", from: "USD", amount: "100")
-        }
     }
 }
 
